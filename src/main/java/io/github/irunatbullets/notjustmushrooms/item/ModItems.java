@@ -19,6 +19,18 @@ public class ModItems {
                     ModBlocks.MUSHROOM_DOTS
             );
 
+    public static final DeferredItem<BlockItem> MUSHROOM_DOTS_TORCH =
+            ITEMS.registerSimpleBlockItem(
+                    "mushroom_dots_torch",
+                    ModBlocks.MUSHROOM_DOTS_TORCH
+            );
+
+    public static final DeferredItem<BlockItem> MUSHROOM_DOTS_REDSTONE_TORCH =
+            ITEMS.registerSimpleBlockItem(
+                    "mushroom_dots_redstone_torch",
+                    ModBlocks.MUSHROOM_DOTS_REDSTONE_TORCH
+            );
+
     public static void register(IEventBus bus) {
         ITEMS.register(bus);
     }

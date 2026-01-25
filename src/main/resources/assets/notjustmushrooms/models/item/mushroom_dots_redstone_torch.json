@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "notjustmushrooms:item/mushroom_dots"
+  },
+  "display": {
+    "gui": {
+      "rotation": [ 30, 45, 0 ],
+      "scale": [ 1.2, 1.2, 1.2 ]
+    }
+  }
+}
