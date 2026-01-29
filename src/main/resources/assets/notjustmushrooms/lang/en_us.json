@@ -1,5 +1,7 @@
 {
   "itemGroup.notjustmushrooms": "Not Just Mushrooms",
-  "block.notjustmushrooms.mushroom_dots": "Mushroom Dots",
-  "item.notjustmushrooms.mushroom_dots": "Mushroom Dots"
+  "block.notjustmushrooms.mushroom_dots_lamp": "Mushroom Dots Lamp",
+  "item.notjustmushrooms.mushroom_dots_lamp": "Mushroom Dots Lamp",
+  "block.notjustmushrooms.mushroom_dots_lamp_inverted": "Mushroom Dots Lamp (inverted)",
+  "item.notjustmushrooms.mushroom_dots_lamp_inverted": "Mushroom Dots Lamp (inverted)"
 }

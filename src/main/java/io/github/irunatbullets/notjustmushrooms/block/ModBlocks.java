@@ -11,15 +11,13 @@ public class ModBlocks {
     public static final DeferredRegister.Blocks BLOCKS =
             DeferredRegister.createBlocks(NotJustMushrooms.MODID);
 
-    public static final DeferredHolder<Block, Block> MUSHROOM_DOTS =
-            BLOCKS.register("mushroom_dots", () -> new MushroomDotsBlock());
+    public static final DeferredHolder<Block, Block> MUSHROOM_DOTS_LAMP =
+            BLOCKS.register("mushroom_dots_lamp",
+                    () -> new MushroomDotsLampBlock(false));
 
-
-    public static final DeferredHolder<Block, Block> MUSHROOM_DOTS_TORCH =
-            BLOCKS.register("mushroom_dots_torch", () -> new MushroomDotsTorchBlock());
-
-    public static final DeferredHolder<Block, Block> MUSHROOM_DOTS_REDSTONE_TORCH =
-            BLOCKS.register("mushroom_dots_redstone_torch", () -> new MushroomDotsRedstoneTorchBlock());
+    public static final DeferredHolder<Block, Block> MUSHROOM_DOTS_LAMP_INVERTED =
+            BLOCKS.register("mushroom_dots_lamp_inverted",
+                    () -> new MushroomDotsLampBlock(true));
 
     public static void register(IEventBus bus) {
         BLOCKS.register(bus);

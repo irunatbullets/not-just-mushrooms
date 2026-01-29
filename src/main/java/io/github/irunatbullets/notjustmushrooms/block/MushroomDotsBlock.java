@@ -21,7 +21,7 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraft.world.level.block.state.properties.Property;
 
-public class MushroomDotsBlock extends Block {
+public abstract class MushroomDotsBlock extends Block {
 
     public static final DirectionProperty FACING =
             DirectionProperty.create("facing", Direction.values());
@@ -38,13 +38,13 @@ public class MushroomDotsBlock extends Block {
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH));
     }
 
-    public MushroomDotsBlock() {
-        this(BlockBehaviour.Properties.of()
-                .mapColor(MapColor.PLANT)
-                .strength(0.2F)
-                .noOcclusion()
-        );
-    }
+//    public MushroomDotsBlock() {
+//        this(BlockBehaviour.Properties.of()
+//                .mapColor(MapColor.PLANT)
+//                .strength(0.2F)
+//                .noOcclusion()
+//        );
+//    }
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
@@ -91,8 +91,8 @@ public class MushroomDotsBlock extends Block {
         return state;
     }
 
-    @Override
-    public List<ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
-        return List.of(new ItemStack(Items.RED_MUSHROOM, 3));
-    }
+//    @Override
+//    public List<ItemStack> getDrops(BlockState state, net.minecraft.world.level.storage.loot.LootParams.Builder builder) {
+//        return List.of(new ItemStack(Items.RED_MUSHROOM, 3));
+//    }
 }

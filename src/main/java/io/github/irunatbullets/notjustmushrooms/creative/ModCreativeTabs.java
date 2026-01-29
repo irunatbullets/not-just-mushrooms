@@ -18,11 +18,10 @@ public class ModCreativeTabs {
             TABS.register("notjustmushrooms", () ->
                     CreativeModeTab.builder()
                             .title(Component.translatable("itemGroup.notjustmushrooms"))
-                            .icon(() -> ModItems.MUSHROOM_DOTS.get().getDefaultInstance())
+                            .icon(() -> ModItems.MUSHROOM_DOTS_LAMP.get().getDefaultInstance())
                             .displayItems((params, output) -> {
-                                output.accept(ModItems.MUSHROOM_DOTS.get());
-                                output.accept(ModItems.MUSHROOM_DOTS_TORCH.get());
-                                output.accept(ModItems.MUSHROOM_DOTS_REDSTONE_TORCH.get());
+                                output.accept(ModItems.MUSHROOM_DOTS_LAMP.get());
+                                output.accept(ModItems.MUSHROOM_DOTS_LAMP_INVERTED.get());
                             })
 
                             .build()
