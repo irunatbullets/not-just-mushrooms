@@ -2,7 +2,7 @@ package io.github.irunatbullets.notjustmushrooms.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.DustParticleOptions;
+import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -19,8 +19,14 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.util.RandomSource;
-import org.joml.Vector3f;
+
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 
 public class MushroomLampBlock extends Block {
 
@@ -119,52 +125,32 @@ public class MushroomLampBlock extends Block {
     }
 
     @Override
-    public void animateTick(BlockState state, Level level, BlockPos pos, RandomSource random) {
-        if (!state.getValue(LIT)) return;
-        if (random.nextFloat() > 0.25f) return;
+    public ItemInteractionResult useItemOn(ItemStack stack,
+                                           BlockState state,
+                                           Level level,
+                                           BlockPos pos,
+                                           Player player,
+                                           InteractionHand hand,
+                                           BlockHitResult hit) {
 
-        Direction facing = state.getValue(FACING);
-        Direction out = facing.getOpposite();
-
-        // Block center
-        double x = pos.getX() + 0.5;
-        double y = pos.getY() + 0.5;
-        double z = pos.getZ() + 0.5;
-
-        // Push toward the actual lamp model
-        double faceOffset = 0.125;
-        x += out.getStepX() * faceOffset;
-        y += out.getStepY() * faceOffset;
-        z += out.getStepZ() * faceOffset;
-
-        // Jitter only in the face plane
-        double jitter = 0.10;
-
-        if (out.getAxis() != Direction.Axis.X) {
-            x += (random.nextDouble() - 0.5) * jitter;
-        }
-        if (out.getAxis() != Direction.Axis.Y) {
-            y += (random.nextDouble() - 0.5) * jitter;
-        }
-        if (out.getAxis() != Direction.Axis.Z) {
-            z += (random.nextDouble() - 0.5) * jitter;
+        if (!stack.is(Items.REDSTONE_TORCH)) {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
         }
 
-        // Gentle upward drift
-        double vx = 0.0;
-        double vy = 0.004 + random.nextDouble() * 0.004;
-        double vz = 0.0;
+        if (!level.isClientSide) {
+            boolean newInverted = !state.getValue(INVERTED);
 
-        Vector3f color = random.nextBoolean()
-                ? new Vector3f(0.980f, 1.000f, 1.000f) // #faffff
-                : new Vector3f(0.973f, 1.000f, 0.722f); // #f8ffb8
+            boolean powered = level.hasNeighborSignal(pos);
+            boolean newLit = newInverted ? !powered : powered;
 
-        level.addParticle(
-                new DustParticleOptions(color, 0.75f),
-                x, y, z,
-                vx, vy, vz
-        );
+            level.setBlock(pos,state.setValue(INVERTED, newInverted).setValue(LIT, newLit),3);
+            level.playSound(null, pos, SoundEvents.REDSTONE_TORCH_BURNOUT, SoundSource.BLOCKS, 0.6f, 1.6f);
+        }
+
+        return ItemInteractionResult.SUCCESS;
     }
+
+
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
