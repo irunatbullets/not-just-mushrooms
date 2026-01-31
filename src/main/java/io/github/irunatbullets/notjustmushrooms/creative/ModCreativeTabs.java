@@ -9,6 +9,7 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
+
 public class ModCreativeTabs {
 
     public static final DeferredRegister<CreativeModeTab> TABS =
@@ -18,12 +19,10 @@ public class ModCreativeTabs {
             TABS.register("notjustmushrooms", () ->
                     CreativeModeTab.builder()
                             .title(Component.translatable("itemGroup.notjustmushrooms"))
-                            .icon(() -> ModItems.MUSHROOM_DOTS_LAMP.get().getDefaultInstance())
+                            .icon(() -> ModItems.MUSHROOM_LAMP.get().getDefaultInstance())
                             .displayItems((params, output) -> {
-                                output.accept(ModItems.MUSHROOM_DOTS_LAMP.get());
-                                output.accept(ModItems.MUSHROOM_DOTS_LAMP_INVERTED.get());
+                                output.accept(ModItems.MUSHROOM_LAMP.get());
                             })
-
                             .build()
             );
 
