@@ -19,7 +19,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.material.MapColor;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.RandomSource;
 import org.joml.Vector3f;
 
@@ -125,7 +124,7 @@ public class MushroomLampBlock extends Block {
         if (random.nextFloat() > 0.25f) return;
 
         Direction facing = state.getValue(FACING);
-        Direction out = facing.getOpposite(); // ← THIS is the important bit
+        Direction out = facing.getOpposite();
 
         // Block center
         double x = pos.getX() + 0.5;
@@ -166,7 +165,6 @@ public class MushroomLampBlock extends Block {
                 vx, vy, vz
         );
     }
-
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
