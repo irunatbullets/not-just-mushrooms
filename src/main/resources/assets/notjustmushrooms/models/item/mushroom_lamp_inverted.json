@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "notjustmushrooms:item/mushroom_lamp_inverted"
+  }
+}

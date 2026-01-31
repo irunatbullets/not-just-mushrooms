@@ -13,10 +13,16 @@ public class ModItems {
     public static final DeferredRegister.Items ITEMS =
             DeferredRegister.createItems(NotJustMushrooms.MODID);
 
-    public static final DeferredItem<BlockItem> MUSHROOM_DOTS =
+    public static final DeferredItem<BlockItem> MUSHROOM_LAMP =
             ITEMS.registerSimpleBlockItem(
-                    "mushroom_dots",
-                    ModBlocks.MUSHROOM_DOTS
+                    "mushroom_lamp",
+                    ModBlocks.MUSHROOM_LAMP
+            );
+
+    public static final DeferredItem<BlockItem> MUSHROOM_LAMP_INVERTED =
+            ITEMS.register(
+                    "mushroom_lamp_inverted",
+                    () -> new BlockItem(ModBlocks.MUSHROOM_LAMP.get(), new Item.Properties())
             );
 
     public static void register(IEventBus bus) {
