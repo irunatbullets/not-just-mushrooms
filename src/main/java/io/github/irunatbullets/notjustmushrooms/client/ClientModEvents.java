@@ -14,7 +14,6 @@ import net.neoforged.fml.event.lifecycle.FMLClientSetupEvent;
         modid = NotJustMushrooms.MODID,
         value = Dist.CLIENT
 )
-
 public class ClientModEvents {
 
     @SubscribeEvent
@@ -26,10 +25,19 @@ public class ClientModEvents {
                             NotJustMushrooms.MODID,
                             "sneaking"
                     ),
-                    (stack, level, entity, seed) ->
-                            (entity instanceof Player player && player.isShiftKeyDown())
-                                    ? 1.0F
-                                    : 0.0F
+                    (stack, level, entity, seed) -> {
+                        if (!(entity instanceof Player player)) {
+                            return 0.0F;
+                        }
+
+                        if (!player.isShiftKeyDown()) {
+                            return 0.0F;
+                        }
+
+                        return (player.getMainHandItem() == stack || player.getOffhandItem() == stack)
+                                ? 1.0F
+                                : 0.0F;
+                    }
             );
         });
     }
