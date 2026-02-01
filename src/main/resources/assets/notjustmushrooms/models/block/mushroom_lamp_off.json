@@ -2,8 +2,8 @@
 	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "notjustmushrooms:block/mushroom_lamp_inverted",
-		"particle": "notjustmushrooms:block/mushroom_lamp_inverted"
+		"0": "notjustmushrooms:block/mushroom_lamp_off",
+		"particle": "notjustmushrooms:block/mushroom_lamp_off"
 	},
 	"elements": [
 		{

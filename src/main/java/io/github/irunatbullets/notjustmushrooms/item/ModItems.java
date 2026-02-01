@@ -19,9 +19,9 @@ public class ModItems {
                     ModBlocks.MUSHROOM_LAMP
             );
 
-    public static final DeferredItem<BlockItem> MUSHROOM_LAMP_INVERTED =
+    public static final DeferredItem<BlockItem> MUSHROOM_LAMP_OFF =
             ITEMS.register(
-                    "mushroom_lamp_inverted",
+                    "mushroom_lamp_off",
                     () -> new BlockItem(ModBlocks.MUSHROOM_LAMP.get(), new Item.Properties())
             );
 
