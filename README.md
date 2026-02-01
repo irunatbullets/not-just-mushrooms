@@ -1,25 +1,22 @@
+<p align=center>
+  <img src="assets/not-just-mushrooms.png" alt="Not Just Mushrooms" width="256">
+</p>
+<hr />
+<h1>Not Just Mushrooms</h1>
 
-Installation information
-=======
+**Not Just Mushrooms** is a decoration-focused mod that adds blocks and items I can’t believe never made it into vanilla.
 
-This template repository can be directly cloned to get you started with a new
-mod. Simply create a new repository cloned from this one, by following the
-instructions provided by [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
+I mean… how did we end up with all these mushrooms, but no way to stick them to walls or ceilings?
 
-Once you have your clone, simply open the repository in the IDE of your choice. The usual recommendation for an IDE is either IntelliJ IDEA or Eclipse.
+Mushrooms are the starting point, with other decorative and semi-functional additions planned over time.
 
-If at any point you are missing libraries in your IDE, or you've run into problems you can
-run `gradlew --refresh-dependencies` to refresh the local cache. `gradlew clean` to reset everything 
-{this does not affect your code} and then start the process again.
+## What's in the mod!
 
-Mapping Names:
-============
-By default, the MDK is configured to use the official mapping names from Mojang for methods and fields 
-in the Minecraft codebase. These names are covered by a specific license. All modders should be aware of this
-license. For the latest license text, refer to the mapping file itself, or the reference copy here:
-https://github.com/NeoForged/NeoForm/blob/main/Mojang.md
+**Mushroom lamp** - A redstone powered mushroom lamp that can be placed almost anywhere! You can change its initial state by sneaking while placing it, or by right-clicking it with a redstone torch. You can also use levers, buttons, or any other redstone items to power it!
 
-Additional Resources: 
-==========
-Community Documentation: https://docs.neoforged.net/  
-NeoForged Discord: https://discord.neoforged.net/
+## Planned ~~mushrooms~~ features:
+- more mushroom stuff 
+- some non-mushroom stuff (otherwise the name of the mod would be misleading)
+
+## Feedback/Requests?
+Feel free to let me know what's missing from minecraft and perhaps I'll add it.
