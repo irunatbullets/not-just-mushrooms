@@ -1,6 +1,14 @@
 {
-  "parent": "minecraft:item/generated",
+  "parent": "item/generated",
   "textures": {
-    "layer0": "notjustmushrooms:item/mushroom_lamp_on"
-  }
+    "layer0": "notjustmushrooms:item/mushroom_lamp_off"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "notjustmushrooms:sneaking": 1.0
+      },
+      "model": "notjustmushrooms:item/mushroom_lamp_on"
+    }
+  ]
 }

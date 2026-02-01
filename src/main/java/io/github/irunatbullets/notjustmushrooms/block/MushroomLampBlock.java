@@ -119,8 +119,14 @@ public class MushroomLampBlock extends Block {
 
         if (dir == state.getValue(FACING).getOpposite()
                 && !state.canSurvive(world, pos)) {
+
+            if (world instanceof Level level && !level.isClientSide) {
+                Block.dropResources(state, level, pos);
+            }
+
             return Blocks.AIR.defaultBlockState();
         }
+
         return state;
     }
 
