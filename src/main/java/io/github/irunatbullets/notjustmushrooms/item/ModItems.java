@@ -5,6 +5,7 @@ import io.github.irunatbullets.notjustmushrooms.block.ModBlocks;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
@@ -23,6 +24,11 @@ public class ModItems {
             ITEMS.register(
                     "mushroom_lamp_on",
                     () -> new BlockItem(ModBlocks.MUSHROOM_LAMP.get(), new Item.Properties())
+            );
+
+    public static final DeferredHolder<Item, BlockItem> TINY_CHEST =
+            ITEMS.register("tiny_chest",
+                    () -> new BlockItem(ModBlocks.TINY_CHEST.get(), new Item.Properties())
             );
 
     public static void register(IEventBus bus) {

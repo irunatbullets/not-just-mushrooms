@@ -1,0 +1,17 @@
+{
+  "parent": "minecraft:block/block",
+  "elements": [
+    {
+      "from": [5, 0, 5],
+      "to":   [11, 6, 11],
+      "faces": {
+        "north": { "texture": "minecraft:block/red_wool" },
+        "south": { "texture": "minecraft:block/red_wool" },
+        "west":  { "texture": "minecraft:block/red_wool" },
+        "east":  { "texture": "minecraft:block/red_wool" },
+        "up":    { "texture": "minecraft:block/red_wool" },
+        "down":  { "texture": "minecraft:block/red_wool" }
+      }
+    }
+  ]
+}

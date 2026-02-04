@@ -22,6 +22,7 @@ public class ModCreativeTabs {
                             .icon(() -> ModItems.MUSHROOM_LAMP_ON.get().getDefaultInstance())
                             .displayItems((params, output) -> {
                                 output.accept(ModItems.MUSHROOM_LAMP.get());
+                                output.accept(ModItems.TINY_CHEST.get());
                             })
                             .build()
             );
